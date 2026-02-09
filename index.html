@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Memory Map ❤️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+
+  <style>
+    * {
+      font-family: 'Inter', sans-serif;
+    }
+
+    #map { 
+      height: 100vh;
+      position: relative;
+    }
+
+    .title-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+      padding: 2.5rem 2rem 4rem;
+      pointer-events: none;
+    }
+
+    .title-overlay h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    .title-overlay p {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.95rem;
+      font-weight: 300;
+      margin-top: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-backdrop {
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.75);
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    .modal-content {
+      animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-header {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #1a1a1a;
+      letter-spacing: -0.01em;
+    }
+
+    .gallery-grid img {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+    }
+
+    .close-btn {
+      transition: all 0.2s ease;
+      background: rgba(239, 68, 68, 0.1);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+      transform: rotate(90deg);
+    }
+
+    .location-label {
+      font-size: 0.75rem;
+      color: #6b7280;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+
+<div id="map">
+  <div class="title-overlay">
+    <h1>Our Memory Map</h1>
+    <p>Every pin tells our story ❤️</p>
+  </div>
+</div>
+
+<div id="galleryModal" class="fixed inset-0 modal-backdrop hidden items-center justify-center z-50 p-4">
+  <div class="bg-white rounded-2xl modal-content max-w-2xl w-full overflow-hidden">
+    <div class="p-6 border-b border-gray-100 flex items-center justify-between">
+      <div>
+        <div class="location-label" id="locationLabel">Memory</div>
+        <h2 class="modal-header" id="locationName">Our Special Moment</h2>
+      </div>
+      <button id="closeGallery" class="close-btn text-red-500 font-light text-xl">✕</button>
+    </div>
+    <div id="gallery" class="gallery-grid grid grid-cols-2 gap-3 p-6 max-h-[70vh] overflow-y-auto"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADCjo639zbgb5ARxhT7_Sych-LFQVwR6g&callback=initMap">
+</script>
+</body>
+</html>
