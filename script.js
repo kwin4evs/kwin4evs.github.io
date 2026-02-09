@@ -44,6 +44,13 @@ function openGallery(loc) {
   const locationName = loc.name || `${loc.lat.toFixed(4)}°, ${loc.lng.toFixed(4)}°`;
   $("#locationName").text(locationName);
 
+  // Set description if available
+  if (loc.description) {
+    $("#locationDescription").text(loc.description).show();
+  } else {
+    $("#locationDescription").hide();
+  }
+
   for (let i = 1; i <= 5; i++) {
     $("#gallery").append(`<img src='${dir}/${i}.jpg' class='rounded-xl object-cover w-full h-48 shadow-md' />`);
   }

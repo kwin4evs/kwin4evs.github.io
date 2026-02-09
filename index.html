@@ -131,11 +131,12 @@
 <div id="galleryModal" class="fixed inset-0 modal-backdrop hidden items-center justify-center z-50 p-4">
   <div class="bg-white rounded-2xl modal-content max-w-2xl w-full overflow-hidden">
     <div class="p-6 border-b border-gray-100 flex items-center justify-between">
-      <div>
+      <div class="flex-1">
         <div class="location-label" id="locationLabel">Memory</div>
         <h2 class="modal-header" id="locationName">Our Special Moment</h2>
+        <p class="text-gray-600 text-sm mt-2 leading-relaxed" id="locationDescription"></p>
       </div>
-      <button id="closeGallery" class="close-btn text-red-500 font-light text-xl">✕</button>
+      <button id="closeGallery" class="close-btn text-red-500 font-light text-xl ml-4">✕</button>
     </div>
     <div id="gallery" class="gallery-grid grid grid-cols-2 gap-3 p-6 max-h-[70vh] overflow-y-auto"></div>
   </div>
