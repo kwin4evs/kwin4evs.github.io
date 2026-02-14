@@ -5,6 +5,10 @@ let currentFolderImages = []; // Array to store images for current folder being 
 let currentImageIndex = 0; // Current image index in lightbox
 let imageToFolderMap = {}; // Maps image src to folder path for scoped navigation
 
+// Swipe gesture constants
+const SWIPE_DISTANCE_THRESHOLD = 50; // Minimum distance in pixels for a swipe to register
+const SWIPE_INTENT_THRESHOLD = 10; // Minimum movement to detect swipe intent vs tap
+
 async function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 5,
@@ -309,13 +313,31 @@ let touchEndX = 0;
 let touchStartY = 0;
 let touchEndY = 0;
 let touchIdentifier = null;
+let isSwiping = false;
 
 $(document).on("touchstart", "#lightbox", function(e) {
   if ($("#lightbox").hasClass("flex") && e.touches.length === 1) {
     const touch = e.touches[0];
-    touchStartX = touch.screenX;
-    touchStartY = touch.screenY;
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
     touchIdentifier = touch.identifier;
+    isSwiping = false;
+  }
+});
+
+$(document).on("touchmove", "#lightbox", function(e) {
+  if ($("#lightbox").hasClass("flex") && touchIdentifier !== null && e.touches.length === 1) {
+    const touch = e.touches[0];
+    if (touch.identifier === touchIdentifier) {
+      const deltaX = Math.abs(touch.clientX - touchStartX);
+      const deltaY = Math.abs(touch.clientY - touchStartY);
+      
+      // If horizontal movement is greater, we're swiping (not scrolling)
+      if (deltaX > deltaY && deltaX > SWIPE_INTENT_THRESHOLD) {
+        isSwiping = true;
+        e.preventDefault(); // Prevent scrolling when swiping horizontally
+      }
+    }
   }
 });
 
@@ -324,10 +346,24 @@ $(document).on("touchend", "#lightbox", function(e) {
     // Find the touch that matches our stored identifier
     for (let i = 0; i < e.changedTouches.length; i++) {
       if (e.changedTouches[i].identifier === touchIdentifier) {
-        touchEndX = e.changedTouches[i].screenX;
-        touchEndY = e.changedTouches[i].screenY;
+        touchEndX = e.changedTouches[i].clientX;
+        touchEndY = e.changedTouches[i].clientY;
         handleSwipeGesture();
         touchIdentifier = null;
+        isSwiping = false;
+        break;
+      }
+    }
+  }
+});
+
+$(document).on("touchcancel", "#lightbox", function(e) {
+  if ($("#lightbox").hasClass("flex") && touchIdentifier !== null) {
+    // Reset touch tracking if gesture is cancelled
+    for (let i = 0; i < e.changedTouches.length; i++) {
+      if (e.changedTouches[i].identifier === touchIdentifier) {
+        touchIdentifier = null;
+        isSwiping = false;
         break;
       }
     }
@@ -335,13 +371,12 @@ $(document).on("touchend", "#lightbox", function(e) {
 });
 
 function handleSwipeGesture() {
-  const swipeThreshold = 50; // Minimum distance for a swipe
   const swipeDistanceX = touchEndX - touchStartX;
   const swipeDistanceY = Math.abs(touchEndY - touchStartY);
   
   // Only trigger swipe if horizontal movement is greater than vertical
   // This prevents accidental swipes when scrolling
-  if (Math.abs(swipeDistanceX) > swipeThreshold && Math.abs(swipeDistanceX) > swipeDistanceY) {
+  if (Math.abs(swipeDistanceX) > SWIPE_DISTANCE_THRESHOLD && Math.abs(swipeDistanceX) > swipeDistanceY) {
     if (swipeDistanceX > 0) {
       // Swipe right - show previous image
       showPreviousImage();
