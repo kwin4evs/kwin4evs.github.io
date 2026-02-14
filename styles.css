@@ -164,6 +164,12 @@
   z-index: 20;
   border: 2px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
+  opacity: 1;
+}
+
+.nav-arrow.arrow-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .nav-arrow:hover {

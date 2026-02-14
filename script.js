@@ -2,6 +2,7 @@ let map;
 let locationsByCoords = {}; // Group entries by lat,lng
 let allImages = []; // Array to store all images for navigation
 let currentImageIndex = 0; // Current image index in lightbox
+let imageToFolderMap = {}; // Maps image src to folder path for scoped navigation
 
 async function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -98,8 +99,9 @@ function openGallery(locData) {
     $("#locationDescription").hide();
   }
 
-  // Reset allImages array for this gallery
+  // Reset allImages array and folder map for this gallery
   allImages = [];
+  imageToFolderMap = {};
 
   // Load images from all dates, grouped by date
   locData.dates.forEach(dateEntry => {
@@ -128,6 +130,8 @@ function openGallery(locData) {
             const imgSrc = `${encodedDir}/${imageName}`;
             // Add to allImages array for navigation
             allImages.push(imgSrc);
+            // Map this image to its folder path for scoped navigation
+            imageToFolderMap[imgSrc] = encodedDir;
             
             const img = $('<img />', {
               src: imgSrc,
@@ -153,20 +157,33 @@ function openGallery(locData) {
 }
 
 function openLightbox(imageSrc) {
-  // Find the index of the clicked image
-  currentImageIndex = allImages.indexOf(imageSrc);
+  // Get the folder path for this image
+  const imageFolder = imageToFolderMap[imageSrc];
+  
+  // Filter allImages to only include images from the same folder
+  const folderImages = allImages.filter(img => imageToFolderMap[img] === imageFolder);
+  
+  // Find the index of the clicked image within its folder
+  currentImageIndex = folderImages.indexOf(imageSrc);
   
   // If image not found, add it to the array
   if (currentImageIndex === -1) {
-    allImages.push(imageSrc);
-    currentImageIndex = allImages.length - 1;
+    folderImages.push(imageSrc);
+    imageToFolderMap[imageSrc] = imageFolder;
+    currentImageIndex = folderImages.length - 1;
   }
+  
+  // Update allImages to only contain images from the current folder
+  allImages = folderImages;
   
   $("#lightboxImage").attr("src", imageSrc);
   $("#lightbox").removeClass("hidden").addClass("flex");
   
   // Show/hide navigation arrows based on available images
   updateNavigationArrows();
+  
+  // Setup autohide for arrows
+  setupArrowAutohide();
 }
 
 function updateNavigationArrows() {
@@ -192,6 +209,7 @@ function showNextImage() {
     currentImageIndex++;
     $("#lightboxImage").attr("src", allImages[currentImageIndex]);
     updateNavigationArrows();
+    setupArrowAutohide(); // Re-setup autohide when navigating
   }
 }
 
@@ -200,7 +218,40 @@ function showPreviousImage() {
     currentImageIndex--;
     $("#lightboxImage").attr("src", allImages[currentImageIndex]);
     updateNavigationArrows();
+    setupArrowAutohide(); // Re-setup autohide when navigating
   }
+}
+
+let arrowHideTimeout;
+
+function setupArrowAutohide() {
+  // Show arrows initially
+  $("#prevImage, #nextImage").removeClass("arrow-hidden");
+  
+  // Clear any existing timeout
+  if (arrowHideTimeout) {
+    clearTimeout(arrowHideTimeout);
+  }
+  
+  // Hide arrows after 2 seconds of inactivity
+  arrowHideTimeout = setTimeout(() => {
+    $("#prevImage, #nextImage").addClass("arrow-hidden");
+  }, 2000);
+}
+
+function showArrowsTemporarily() {
+  // Show arrows
+  $("#prevImage, #nextImage").removeClass("arrow-hidden");
+  
+  // Clear existing timeout
+  if (arrowHideTimeout) {
+    clearTimeout(arrowHideTimeout);
+  }
+  
+  // Hide arrows after 2 seconds
+  arrowHideTimeout = setTimeout(() => {
+    $("#prevImage, #nextImage").addClass("arrow-hidden");
+  }, 2000);
 }
 
 function closeGallery() {
@@ -209,6 +260,10 @@ function closeGallery() {
 
 function closeLightbox() {
   $("#lightbox").addClass("hidden").removeClass("flex");
+  // Clear arrow hide timeout when closing lightbox
+  if (arrowHideTimeout) {
+    clearTimeout(arrowHideTimeout);
+  }
 }
 
 // Event handlers for closing modals
@@ -238,5 +293,12 @@ $(document).on("keydown", function(e) {
     } else if (e.key === "ArrowLeft") {
       showPreviousImage();
     }
+  }
+});
+
+// Show arrows on mouse move in lightbox
+$(document).on("mousemove", "#lightbox", function(e) {
+  if ($("#lightbox").hasClass("flex")) {
+    showArrowsTemporarily();
   }
 });
