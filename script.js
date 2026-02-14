@@ -1,5 +1,7 @@
 let map;
 let locationsByCoords = {}; // Group entries by lat,lng
+let allImages = []; // Array to store all images for navigation
+let currentImageIndex = 0; // Current image index in lightbox
 
 async function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -96,6 +98,9 @@ function openGallery(locData) {
     $("#locationDescription").hide();
   }
 
+  // Reset allImages array for this gallery
+  allImages = [];
+
   // Load images from all dates, grouped by date
   locData.dates.forEach(dateEntry => {
     const dir = `images/${dateEntry.path}`;
@@ -121,6 +126,9 @@ function openGallery(locData) {
         } else {
           images.forEach(imageName => {
             const imgSrc = `${encodedDir}/${imageName}`;
+            // Add to allImages array for navigation
+            allImages.push(imgSrc);
+            
             const img = $('<img />', {
               src: imgSrc,
               class: 'rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow w-full h-32 object-cover',
@@ -145,8 +153,54 @@ function openGallery(locData) {
 }
 
 function openLightbox(imageSrc) {
+  // Find the index of the clicked image
+  currentImageIndex = allImages.indexOf(imageSrc);
+  
+  // If image not found, add it to the array
+  if (currentImageIndex === -1) {
+    allImages.push(imageSrc);
+    currentImageIndex = allImages.length - 1;
+  }
+  
   $("#lightboxImage").attr("src", imageSrc);
   $("#lightbox").removeClass("hidden").addClass("flex");
+  
+  // Show/hide navigation arrows based on available images
+  updateNavigationArrows();
+}
+
+function updateNavigationArrows() {
+  if (allImages.length <= 1) {
+    $("#prevImage, #nextImage").addClass("hidden");
+  } else {
+    $("#prevImage, #nextImage").removeClass("hidden");
+    
+    // Hide prev arrow if on first image
+    if (currentImageIndex === 0) {
+      $("#prevImage").addClass("hidden");
+    }
+    
+    // Hide next arrow if on last image
+    if (currentImageIndex === allImages.length - 1) {
+      $("#nextImage").addClass("hidden");
+    }
+  }
+}
+
+function showNextImage() {
+  if (currentImageIndex < allImages.length - 1) {
+    currentImageIndex++;
+    $("#lightboxImage").attr("src", allImages[currentImageIndex]);
+    updateNavigationArrows();
+  }
+}
+
+function showPreviousImage() {
+  if (currentImageIndex > 0) {
+    currentImageIndex--;
+    $("#lightboxImage").attr("src", allImages[currentImageIndex]);
+    updateNavigationArrows();
+  }
 }
 
 function closeGallery() {
@@ -161,6 +215,10 @@ function closeLightbox() {
 $(document).on("click", "#closeGallery", closeGallery);
 $(document).on("click", "#closeLightbox", closeLightbox);
 
+// Event handlers for navigation arrows
+$(document).on("click", "#nextImage", showNextImage);
+$(document).on("click", "#prevImage", showPreviousImage);
+
 // Close lightbox when clicking outside the image
 $(document).on("click", "#lightbox", function(e) {
   if (e.target.id === "lightbox") {
@@ -168,10 +226,17 @@ $(document).on("click", "#lightbox", function(e) {
   }
 });
 
-// Close gallery when pressing Escape key
+// Keyboard navigation
 $(document).on("keydown", function(e) {
   if (e.key === "Escape") {
     closeGallery();
     closeLightbox();
+  } else if ($("#lightbox").hasClass("flex")) {
+    // Navigation only works when lightbox is open
+    if (e.key === "ArrowRight") {
+      showNextImage();
+    } else if (e.key === "ArrowLeft") {
+      showPreviousImage();
+    }
   }
 });
