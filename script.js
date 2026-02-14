@@ -1,6 +1,7 @@
 let map;
 let locationsByCoords = {}; // Group entries by lat,lng
-let allImages = []; // Array to store all images for navigation
+let allImages = []; // Array to store all images from all folders
+let currentFolderImages = []; // Array to store images for current folder being viewed
 let currentImageIndex = 0; // Current image index in lightbox
 let imageToFolderMap = {}; // Maps image src to folder path for scoped navigation
 
@@ -161,20 +162,18 @@ function openLightbox(imageSrc) {
   const imageFolder = imageToFolderMap[imageSrc];
   
   // Filter allImages to only include images from the same folder
-  const folderImages = allImages.filter(img => imageToFolderMap[img] === imageFolder);
+  currentFolderImages = allImages.filter(img => imageToFolderMap[img] === imageFolder);
   
   // Find the index of the clicked image within its folder
-  currentImageIndex = folderImages.indexOf(imageSrc);
+  currentImageIndex = currentFolderImages.indexOf(imageSrc);
   
-  // If image not found, add it to the array
+  // If image not found, add it to the arrays
   if (currentImageIndex === -1) {
-    folderImages.push(imageSrc);
+    currentFolderImages.push(imageSrc);
+    allImages.push(imageSrc);
     imageToFolderMap[imageSrc] = imageFolder;
-    currentImageIndex = folderImages.length - 1;
+    currentImageIndex = currentFolderImages.length - 1;
   }
-  
-  // Update allImages to only contain images from the current folder
-  allImages = folderImages;
   
   $("#lightboxImage").attr("src", imageSrc);
   $("#lightbox").removeClass("hidden").addClass("flex");
@@ -187,7 +186,7 @@ function openLightbox(imageSrc) {
 }
 
 function updateNavigationArrows() {
-  if (allImages.length <= 1) {
+  if (currentFolderImages.length <= 1) {
     $("#prevImage, #nextImage").addClass("hidden");
   } else {
     $("#prevImage, #nextImage").removeClass("hidden");
@@ -198,16 +197,16 @@ function updateNavigationArrows() {
     }
     
     // Hide next arrow if on last image
-    if (currentImageIndex === allImages.length - 1) {
+    if (currentImageIndex === currentFolderImages.length - 1) {
       $("#nextImage").addClass("hidden");
     }
   }
 }
 
 function showNextImage() {
-  if (currentImageIndex < allImages.length - 1) {
+  if (currentImageIndex < currentFolderImages.length - 1) {
     currentImageIndex++;
-    $("#lightboxImage").attr("src", allImages[currentImageIndex]);
+    $("#lightboxImage").attr("src", currentFolderImages[currentImageIndex]);
     updateNavigationArrows();
     setupArrowAutohide(); // Re-setup autohide when navigating
   }
@@ -216,7 +215,7 @@ function showNextImage() {
 function showPreviousImage() {
   if (currentImageIndex > 0) {
     currentImageIndex--;
-    $("#lightboxImage").attr("src", allImages[currentImageIndex]);
+    $("#lightboxImage").attr("src", currentFolderImages[currentImageIndex]);
     updateNavigationArrows();
     setupArrowAutohide(); // Re-setup autohide when navigating
   }
@@ -225,7 +224,7 @@ function showPreviousImage() {
 let arrowHideTimeout;
 
 function setupArrowAutohide() {
-  // Show arrows initially
+  // Show arrows
   $("#prevImage, #nextImage").removeClass("arrow-hidden");
   
   // Clear any existing timeout
@@ -234,21 +233,6 @@ function setupArrowAutohide() {
   }
   
   // Hide arrows after 2 seconds of inactivity
-  arrowHideTimeout = setTimeout(() => {
-    $("#prevImage, #nextImage").addClass("arrow-hidden");
-  }, 2000);
-}
-
-function showArrowsTemporarily() {
-  // Show arrows
-  $("#prevImage, #nextImage").removeClass("arrow-hidden");
-  
-  // Clear existing timeout
-  if (arrowHideTimeout) {
-    clearTimeout(arrowHideTimeout);
-  }
-  
-  // Hide arrows after 2 seconds
   arrowHideTimeout = setTimeout(() => {
     $("#prevImage, #nextImage").addClass("arrow-hidden");
   }, 2000);
@@ -299,6 +283,6 @@ $(document).on("keydown", function(e) {
 // Show arrows on mouse move in lightbox
 $(document).on("mousemove", "#lightbox", function(e) {
   if ($("#lightbox").hasClass("flex")) {
-    showArrowsTemporarily();
+    setupArrowAutohide();
   }
 });
