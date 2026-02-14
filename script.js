@@ -316,8 +316,8 @@ let touchIdentifier = null;
 let isSwiping = false;
 
 $(document).on("touchstart", "#lightbox", function(e) {
-  if ($("#lightbox").hasClass("flex") && e.touches.length === 1) {
-    const touch = e.touches[0];
+  if ($("#lightbox").hasClass("flex") && e.originalEvent.touches.length === 1) {
+    const touch = e.originalEvent.touches[0];
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
     touchIdentifier = touch.identifier;
@@ -326,8 +326,8 @@ $(document).on("touchstart", "#lightbox", function(e) {
 });
 
 $(document).on("touchmove", "#lightbox", function(e) {
-  if ($("#lightbox").hasClass("flex") && touchIdentifier !== null && e.touches.length === 1) {
-    const touch = e.touches[0];
+  if ($("#lightbox").hasClass("flex") && touchIdentifier !== null && e.originalEvent.touches.length === 1) {
+    const touch = e.originalEvent.touches[0];
     if (touch.identifier === touchIdentifier) {
       const deltaX = Math.abs(touch.clientX - touchStartX);
       const deltaY = Math.abs(touch.clientY - touchStartY);
@@ -344,10 +344,10 @@ $(document).on("touchmove", "#lightbox", function(e) {
 $(document).on("touchend", "#lightbox", function(e) {
   if ($("#lightbox").hasClass("flex") && touchIdentifier !== null) {
     // Find the touch that matches our stored identifier
-    for (let i = 0; i < e.changedTouches.length; i++) {
-      if (e.changedTouches[i].identifier === touchIdentifier) {
-        touchEndX = e.changedTouches[i].clientX;
-        touchEndY = e.changedTouches[i].clientY;
+    for (let i = 0; i < e.originalEvent.changedTouches.length; i++) {
+      if (e.originalEvent.changedTouches[i].identifier === touchIdentifier) {
+        touchEndX = e.originalEvent.changedTouches[i].clientX;
+        touchEndY = e.originalEvent.changedTouches[i].clientY;
         handleSwipeGesture();
         touchIdentifier = null;
         isSwiping = false;
@@ -360,8 +360,8 @@ $(document).on("touchend", "#lightbox", function(e) {
 $(document).on("touchcancel", "#lightbox", function(e) {
   if ($("#lightbox").hasClass("flex") && touchIdentifier !== null) {
     // Reset touch tracking if gesture is cancelled
-    for (let i = 0; i < e.changedTouches.length; i++) {
-      if (e.changedTouches[i].identifier === touchIdentifier) {
+    for (let i = 0; i < e.originalEvent.changedTouches.length; i++) {
+      if (e.originalEvent.changedTouches[i].identifier === touchIdentifier) {
         touchIdentifier = null;
         isSwiping = false;
         break;
