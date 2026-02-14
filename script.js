@@ -161,18 +161,26 @@ function openLightbox(imageSrc) {
   // Get the folder path for this image
   const imageFolder = imageToFolderMap[imageSrc];
   
-  // Filter allImages to only include images from the same folder
-  currentFolderImages = allImages.filter(img => imageToFolderMap[img] === imageFolder);
-  
-  // Find the index of the clicked image within its folder
-  currentImageIndex = currentFolderImages.indexOf(imageSrc);
-  
-  // If image not found, add it to the arrays
-  if (currentImageIndex === -1) {
-    currentFolderImages.push(imageSrc);
-    allImages.push(imageSrc);
-    imageToFolderMap[imageSrc] = imageFolder;
-    currentImageIndex = currentFolderImages.length - 1;
+  // If image is not mapped to a folder, handle gracefully
+  if (!imageFolder) {
+    console.warn('Image not found in folder map:', imageSrc);
+    // Show just this image with no navigation
+    currentFolderImages = [imageSrc];
+    currentImageIndex = 0;
+  } else {
+    // Filter allImages to only include images from the same folder
+    currentFolderImages = allImages.filter(img => imageToFolderMap[img] === imageFolder);
+    
+    // Find the index of the clicked image within its folder
+    currentImageIndex = currentFolderImages.indexOf(imageSrc);
+    
+    // If image not found in filtered list, add it
+    if (currentImageIndex === -1) {
+      currentFolderImages.push(imageSrc);
+      allImages.push(imageSrc);
+      imageToFolderMap[imageSrc] = imageFolder;
+      currentImageIndex = currentFolderImages.length - 1;
+    }
   }
   
   $("#lightboxImage").attr("src", imageSrc);
@@ -222,6 +230,7 @@ function showPreviousImage() {
 }
 
 let arrowHideTimeout;
+let mouseMoveThrottle;
 
 function setupArrowAutohide() {
   // Show arrows
@@ -247,6 +256,11 @@ function closeLightbox() {
   // Clear arrow hide timeout when closing lightbox
   if (arrowHideTimeout) {
     clearTimeout(arrowHideTimeout);
+  }
+  // Clear mousemove throttle
+  if (mouseMoveThrottle) {
+    clearTimeout(mouseMoveThrottle);
+    mouseMoveThrottle = null;
   }
 }
 
@@ -280,9 +294,15 @@ $(document).on("keydown", function(e) {
   }
 });
 
-// Show arrows on mouse move in lightbox
+// Show arrows on mouse move in lightbox (throttled to reduce excessive calls)
 $(document).on("mousemove", "#lightbox", function(e) {
   if ($("#lightbox").hasClass("flex")) {
-    setupArrowAutohide();
+    // Throttle mousemove events to run at most once every 200ms
+    if (!mouseMoveThrottle) {
+      setupArrowAutohide();
+      mouseMoveThrottle = setTimeout(() => {
+        mouseMoveThrottle = null;
+      }, 200);
+    }
   }
 });
