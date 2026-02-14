@@ -174,8 +174,9 @@ function openLightbox(imageSrc) {
     // Find the index of the clicked image within its folder
     currentImageIndex = currentFolderImages.indexOf(imageSrc);
     
-    // If image not found in filtered list, add it
+    // If image not found in filtered list, this indicates a mapping issue
     if (currentImageIndex === -1) {
+      console.warn('Image found in folder map but not in filtered list. This may indicate a data inconsistency:', imageSrc);
       currentFolderImages.push(imageSrc);
       allImages.push(imageSrc);
       imageToFolderMap[imageSrc] = imageFolder;
@@ -295,7 +296,7 @@ $(document).on("keydown", function(e) {
 });
 
 // Show arrows on mouse move in lightbox (throttled to reduce excessive calls)
-$(document).on("mousemove", "#lightbox", function(e) {
+$(document).on("mousemove", "#lightbox", function() {
   if ($("#lightbox").hasClass("flex")) {
     // Throttle mousemove events to run at most once every 200ms
     if (!mouseMoveThrottle) {
