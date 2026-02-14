@@ -120,40 +120,96 @@ function openGallery(locData) {
     // Add date container for images with proper grid - 5 per row
     const dateContainer = $(`<div class='grid grid-cols-5 gap-4 w-full'></div>`);
     
-    fetch(`${encodedDir}/index.json`)
-      .then(response => response.json())
-      .then(images => {
-        if (images.length === 0) {
-          dateContainer.html('<p class="text-gray-500">No images for this date.</p>');
-        } else {
-          images.forEach(imageName => {
-            const imgSrc = `${encodedDir}/${imageName}`;
-            // Add to allImages array for navigation
-            allImages.push(imgSrc);
-            // Map this image to its folder path for scoped navigation
-            imageToFolderMap[imgSrc] = encodedDir;
-            
-            const img = $('<img />', {
-              src: imgSrc,
-              class: 'rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow w-full h-32 object-cover',
-              click: function() {
-                openLightbox(this.src);
-              }
-            });
-            dateContainer.append(img);
-          });
-        }
-      })
-      .catch(error => {
-        console.error('Error loading images for date:', dateEntry.date, error);
-        dateContainer.html('<p class="text-gray-500">Error loading images.</p>');
-      });
+    // Store the directory path and date container for lazy loading
+    dateContainer.attr('data-images-dir', encodedDir);
+    dateContainer.attr('data-loaded', 'false');
+    
+    // Add a loading indicator
+    dateContainer.html('<p class="text-gray-400 col-span-5">Loading images...</p>');
     
     dateSection.append(dateContainer);
     $("#gallery").append(dateSection);
   });
 
   $("#galleryModal").removeClass("hidden").addClass("flex");
+  
+  // Set up lazy loading for image containers
+  setupLazyLoadingForGallery();
+}
+
+function loadImagesForContainer(dateContainer) {
+  const encodedDir = dateContainer.attr('data-images-dir');
+  const loadedStatus = dateContainer.attr('data-loaded');
+  
+  // Skip if already loaded or currently loading
+  if (loadedStatus === 'true' || loadedStatus === 'loading') {
+    return;
+  }
+  
+  // Mark as loading to prevent duplicate loading attempts
+  dateContainer.attr('data-loaded', 'loading');
+  
+  fetch(`${encodedDir}/index.json`)
+    .then(response => response.json())
+    .then(images => {
+      // Clear loading indicator
+      dateContainer.empty();
+      
+      if (images.length === 0) {
+        dateContainer.html('<p class="text-gray-500">No images for this date.</p>');
+      } else {
+        images.forEach(imageName => {
+          const imgSrc = `${encodedDir}/${imageName}`;
+          // Add to allImages array for navigation
+          allImages.push(imgSrc);
+          // Map this image to its folder path for scoped navigation
+          imageToFolderMap[imgSrc] = encodedDir;
+          
+          const img = $('<img />', {
+            src: imgSrc,
+            class: 'rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow w-full h-32 object-cover',
+            click: function() {
+              openLightbox(this.src);
+            }
+          });
+          dateContainer.append(img);
+        });
+      }
+      
+      // Mark as successfully loaded after images are added
+      dateContainer.attr('data-loaded', 'true');
+    })
+    .catch(error => {
+      console.error('Error loading images for directory:', encodedDir, error);
+      dateContainer.html('<p class="text-gray-500">Error loading images.</p>');
+      // Reset loading flag on error to allow retry
+      dateContainer.attr('data-loaded', 'false');
+    });
+}
+
+function setupLazyLoadingForGallery() {
+  // Use Intersection Observer to load images when they come into view
+  const options = {
+    root: document.querySelector('#gallery'),
+    rootMargin: '50px', // Start loading slightly before the container is visible
+    threshold: 0.01
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const dateContainer = $(entry.target);
+        loadImagesForContainer(dateContainer);
+        // Stop observing this container after loading
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+  
+  // Observe all date containers
+  $('#gallery [data-images-dir]').each(function() {
+    observer.observe(this);
+  });
 }
 
 function openLightbox(imageSrc) {
