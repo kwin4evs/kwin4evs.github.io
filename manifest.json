@@ -1,12 +1,1202 @@
 [
   {
-    "lat": 14.5995,
-    "lng": 120.9842,
-    "path": "14.5995,120.9842"
+    "lat": 10.7188647,
+    "lng": 123.1213135,
+    "path": "Lawaan Cafe (10.7188647,123.1213135)/2026-02-08",
+    "name": "Lawaan Cafe",
+    "description": "",
+    "date": "2026-02-08"
   },
   {
-    "lat": 10.3157,
-    "lng": 123.8854,
-    "path": "10.3157,123.8854"
+    "lat": 10.6619275,
+    "lng": 123.1332494,
+    "path": "Cafe Gip (10.6619275,123.1332494)/2026-02-07",
+    "name": "Cafe Gip",
+    "description": "",
+    "date": "2026-02-07"
+  },
+  {
+    "lat": 10.6619264,
+    "lng": 123.0240884,
+    "path": "Conchita (10.6619264,123.0240884)/2025-12-26",
+    "name": "Conchita",
+    "description": "",
+    "date": "2025-12-26"
+  },
+  {
+    "lat": 10.6619275,
+    "lng": 123.1332494,
+    "path": "Cafe Gip (10.6619275,123.1332494)/2025-11-23",
+    "name": "Cafe Gip",
+    "description": "",
+    "date": "2025-11-23"
+  },
+  {
+    "lat": 10.6619264,
+    "lng": 123.0240884,
+    "path": "Conchita (10.6619264,123.0240884)/2025-10-26",
+    "name": "Conchita",
+    "description": "",
+    "date": "2025-10-26"
+  },
+  {
+    "lat": 9.9076633,
+    "lng": 122.409462,
+    "path": "Parola Cauayan (9.9076633,122.409462)/2025-09-14",
+    "name": "Parola Cauayan",
+    "description": "",
+    "date": "2025-09-14"
+  },
+  {
+    "lat": 10.8336474,
+    "lng": 122.9481364,
+    "path": "Edgewater (10.8336474,122.9481364)/2025-08-19",
+    "name": "Edgewater",
+    "description": "",
+    "date": "2025-08-19"
+  },
+  {
+    "lat": 10.679412,
+    "lng": 123.036135,
+    "path": "Uma (10.679412,123.036135)/2025-08-06",
+    "name": "Uma",
+    "description": "",
+    "date": "2025-08-06"
+  },
+  {
+    "lat": 10.6917351,
+    "lng": 123.172043,
+    "path": "Ilaya Highland Resort (10.6917351,123.172043)/2025-06-07",
+    "name": "Ilaya Highland Resort",
+    "description": "",
+    "date": "2025-06-07"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2025-06-03",
+    "name": "Camella",
+    "description": "",
+    "date": "2025-06-03"
+  },
+  {
+    "lat": 10.6428177,
+    "lng": 122.7181916,
+    "path": "Playa De Paraiso Guimaras (10.6428177,122.7181916)/2025-05-26",
+    "name": "Playa De Paraiso Guimaras",
+    "description": "",
+    "date": "2025-05-26"
+  },
+  {
+    "lat": 10.6428177,
+    "lng": 122.7181916,
+    "path": "Playa De Paraiso Guimaras (10.6428177,122.7181916)/2025-05-25",
+    "name": "Playa De Paraiso Guimaras",
+    "description": "",
+    "date": "2025-05-25"
+  },
+  {
+    "lat": 10.6428177,
+    "lng": 122.7181916,
+    "path": "Playa De Paraiso Guimaras (10.6428177,122.7181916)/2025-05-24",
+    "name": "Playa De Paraiso Guimaras",
+    "description": "",
+    "date": "2025-05-24"
+  },
+  {
+    "lat": 9.9004413,
+    "lng": 122.8883402,
+    "path": "Mag-Aso Falls Kabankalan (9.9004413,122.8883402)/2025-04-18",
+    "name": "Mag-Aso Falls Kabankalan",
+    "description": "",
+    "date": "2025-04-18"
+  },
+  {
+    "lat": 10.8336474,
+    "lng": 122.9481364,
+    "path": "Edgewater (10.8336474,122.9481364)/2025-04-11",
+    "name": "Edgewater",
+    "description": "",
+    "date": "2025-04-11"
+  },
+  {
+    "lat": 10.6756241,
+    "lng": 123.0136766,
+    "path": "Bagong Dalan (10.6756241,123.0136766)/2025-04-09",
+    "name": "Bagong Dalan",
+    "description": "",
+    "date": "2025-04-09"
+  },
+  {
+    "lat": 10.6619275,
+    "lng": 123.1332494,
+    "path": "Cafe Gip (10.6619275,123.1332494)/2025-04-02",
+    "name": "Cafe Gip",
+    "description": "",
+    "date": "2025-04-02"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2025-03-23",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2025-03-23"
+  },
+  {
+    "lat": 10.3111424,
+    "lng": 123.8891935,
+    "path": "Pungko-Pungko Cebu (10.3111424,123.8891935)/2025-03-16",
+    "name": "Pungko-Pungko Cebu",
+    "description": "",
+    "date": "2025-03-16"
+  },
+  {
+    "lat": 10.370619,
+    "lng": 123.8605767,
+    "path": "Tops Cebu (10.370619,123.8605767)/2025-03-15",
+    "name": "Tops Cebu",
+    "description": "",
+    "date": "2025-03-15"
+  },
+  {
+    "lat": 10.3111424,
+    "lng": 123.8891935,
+    "path": "Pungko-Pungko Cebu (10.3111424,123.8891935)/2025-03-14",
+    "name": "Pungko-Pungko Cebu",
+    "description": "",
+    "date": "2025-03-14"
+  },
+  {
+    "lat": 10.8439416,
+    "lng": 122.9668396,
+    "path": "Punong Gary's (10.8439416,122.9668396)/2025-03-08",
+    "name": "Punong Gary's",
+    "description": "",
+    "date": "2025-03-08"
+  },
+  {
+    "lat": 10.6756241,
+    "lng": 123.0136766,
+    "path": "Bagong Dalan (10.6756241,123.0136766)/2025-02-25",
+    "name": "Bagong Dalan",
+    "description": "",
+    "date": "2025-02-25"
+  },
+  {
+    "lat": 10.6619264,
+    "lng": 123.0240884,
+    "path": "Conchita (10.6619264,123.0240884)/2025-02-16",
+    "name": "Conchita",
+    "description": "",
+    "date": "2025-02-16"
+  },
+  {
+    "lat": 10.6619264,
+    "lng": 123.0240884,
+    "path": "Conchita (10.6619264,123.0240884)/2025-02-14",
+    "name": "Conchita",
+    "description": "",
+    "date": "2025-02-14"
+  },
+  {
+    "lat": 10.8818194,
+    "lng": 122.9808008,
+    "path": "Playa del Puerto (10.8818194,122.9808008)/2025-02-02",
+    "name": "Playa del Puerto",
+    "description": "",
+    "date": "2025-02-02"
+  },
+  {
+    "lat": 10.6619275,
+    "lng": 123.1332494,
+    "path": "Cafe Gip (10.6619275,123.1332494)/2025-01-25",
+    "name": "Cafe Gip",
+    "description": "",
+    "date": "2025-01-25"
+  },
+  {
+    "lat": 10.8336474,
+    "lng": 122.9481364,
+    "path": "Edgewater (10.8336474,122.9481364)/2025-01-24",
+    "name": "Edgewater",
+    "description": "",
+    "date": "2025-01-24"
+  },
+  {
+    "lat": 10.6619275,
+    "lng": 123.1332494,
+    "path": "Cafe Gip (10.6619275,123.1332494)/2025-01-19",
+    "name": "Cafe Gip",
+    "description": "",
+    "date": "2025-01-19"
+  },
+  {
+    "lat": 10.6723969,
+    "lng": 122.9380618,
+    "path": "Baywalk (10.6723969,122.9380618)/2025-01-14",
+    "name": "Baywalk",
+    "description": "",
+    "date": "2025-01-14"
+  },
+  {
+    "lat": 10.6917351,
+    "lng": 123.172043,
+    "path": "Ilaya Highland Resort (10.6917351,123.172043)/2025-01-12",
+    "name": "Ilaya Highland Resort",
+    "description": "",
+    "date": "2025-01-12"
+  },
+  {
+    "lat": 10.6756241,
+    "lng": 123.0136766,
+    "path": "Bagong Dalan (10.6756241,123.0136766)/2025-01-11",
+    "name": "Bagong Dalan",
+    "description": "",
+    "date": "2025-01-11"
+  },
+  {
+    "lat": 10.6635178,
+    "lng": 123.0186195,
+    "path": "Velmiro House (10.6635178,123.0186195)/2025-01-09",
+    "name": "Velmiro House",
+    "description": "",
+    "date": "2025-01-09"
+  },
+  {
+    "lat": 10.8336474,
+    "lng": 122.9481364,
+    "path": "Edgewater (10.8336474,122.9481364)/2025-01-07",
+    "name": "Edgewater",
+    "description": "",
+    "date": "2025-01-07"
+  },
+  {
+    "lat": 10.5376151,
+    "lng": 122.8267602,
+    "path": "Bantayan Park (10.5376151,122.8267602)/2024-12-29",
+    "name": "Bantayan Park",
+    "description": "",
+    "date": "2024-12-29"
+  },
+  {
+    "lat": 10.7012976,
+    "lng": 122.9595253,
+    "path": "Delicioso (10.7012976,122.9595253)/2024-12-27",
+    "name": "Delicioso",
+    "description": "",
+    "date": "2024-12-27"
+  },
+  {
+    "lat": 10.665746,
+    "lng": 123.0219295,
+    "path": "Beans Talk Granada (10.665746,123.0219295)/2024-11-22",
+    "name": "Beans Talk Granada",
+    "description": "",
+    "date": "2024-11-22"
+  },
+  {
+    "lat": 10.8336474,
+    "lng": 122.9481364,
+    "path": "Edgewater (10.8336474,122.9481364)/2024-11-16",
+    "name": "Edgewater",
+    "description": "",
+    "date": "2024-11-16"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2024-11-13",
+    "name": "Camella",
+    "description": "",
+    "date": "2024-11-13"
+  },
+  {
+    "lat": 10.5618694,
+    "lng": 123.1402786,
+    "path": "Primera Parada (10.5618694,123.1402786)/2024-10-09",
+    "name": "Primera Parada",
+    "description": "",
+    "date": "2024-10-09"
+  },
+  {
+    "lat": 10.6681183,
+    "lng": 123.1275226,
+    "path": "Almadria Highlands Resort (10.6681183,123.1275226)/2024-09-12",
+    "name": "Almadria Highlands Resort",
+    "description": "",
+    "date": "2024-09-12"
+  },
+  {
+    "lat": 10.842699,
+    "lng": 123.5656956,
+    "path": "Cabli Beach Resort (10.842699,123.5656956)/2024-09-08",
+    "name": "Cabli Beach Resort",
+    "description": "",
+    "date": "2024-09-08"
+  },
+  {
+    "lat": 10.5735819,
+    "lng": 123.1757011,
+    "path": "Doc J DSB (10.5735819,123.1757011)/2024-09-06",
+    "name": "Doc J DSB",
+    "description": "",
+    "date": "2024-09-06"
+  },
+  {
+    "lat": 10.5376151,
+    "lng": 122.8267602,
+    "path": "Bantayan Park (10.5376151,122.8267602)/2024-08-31",
+    "name": "Bantayan Park",
+    "description": "",
+    "date": "2024-08-31"
+  },
+  {
+    "lat": 10.7981939,
+    "lng": 122.9721629,
+    "path": "Cafe 1925 (10.7981939,122.9721629)/2024-08-22",
+    "name": "Cafe 1925",
+    "description": "",
+    "date": "2024-08-22"
+  },
+  {
+    "lat": 10.6605951,
+    "lng": 123.1398555,
+    "path": "Campuestohan (10.6605951,123.1398555)/2024-08-21",
+    "name": "Campuestohan",
+    "description": "",
+    "date": "2024-08-21"
+  },
+  {
+    "lat": 10.9162197,
+    "lng": 123.0585771,
+    "path": "Baybay Mangrove Eco Trail (10.9162197,123.0585771)/2024-08-18",
+    "name": "Baybay Mangrove Eco Trail",
+    "description": "",
+    "date": "2024-08-18"
+  },
+  {
+    "lat": 10.6727893,
+    "lng": 122.9414609,
+    "path": "Pepper Lunch Bacolod (10.6727893,122.9414609)/2024-08-07",
+    "name": "Pepper Lunch Bacolod",
+    "description": "",
+    "date": "2024-08-07"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2024-08-07",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2024-08-07"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2024-07-14",
+    "name": "Camella",
+    "description": "",
+    "date": "2024-07-14"
+  },
+  {
+    "lat": 10.6619264,
+    "lng": 123.0240884,
+    "path": "Conchita (10.6619264,123.0240884)/2024-07-09",
+    "name": "Conchita",
+    "description": "",
+    "date": "2024-07-09"
+  },
+  {
+    "lat": 10.8818194,
+    "lng": 122.9808008,
+    "path": "Playa del Puerto (10.8818194,122.9808008)/2024-06-28",
+    "name": "Playa del Puerto",
+    "description": "",
+    "date": "2024-06-28"
+  },
+  {
+    "lat": 10.6626791,
+    "lng": 123.0247713,
+    "path": "Cafe Jito (10.6626791,123.0247713)/2024-06-16",
+    "name": "Cafe Jito",
+    "description": "",
+    "date": "2024-06-16"
+  },
+  {
+    "lat": 10.5661528,
+    "lng": 123.1978512,
+    "path": "Lion's Park Viewing Deck (10.5661528,123.1978512)/2024-05-12",
+    "name": "Lion's Park Viewing Deck",
+    "description": "",
+    "date": "2024-05-12"
+  },
+  {
+    "lat": 10.8439416,
+    "lng": 122.9668396,
+    "path": "Punong Gary's (10.8439416,122.9668396)/2024-05-11",
+    "name": "Punong Gary's",
+    "description": "",
+    "date": "2024-05-11"
+  },
+  {
+    "lat": 10.6762939,
+    "lng": 122.951321,
+    "path": "Woofgang (10.6762939,122.951321)/2024-05-05",
+    "name": "Woofgang",
+    "description": "",
+    "date": "2024-05-05"
+  },
+  {
+    "lat": 10.8336474,
+    "lng": 122.9481364,
+    "path": "Edgewater (10.8336474,122.9481364)/2024-05-03",
+    "name": "Edgewater",
+    "description": "",
+    "date": "2024-05-03"
+  },
+  {
+    "lat": 10.6707923,
+    "lng": 122.9400966,
+    "path": "SM City Bacolod (10.6707923,122.9400966)/2024-05-02",
+    "name": "SM City Bacolod",
+    "description": "",
+    "date": "2024-05-02"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2024-04-16",
+    "name": "Camella",
+    "description": "",
+    "date": "2024-04-16"
+  },
+  {
+    "lat": 10.7012976,
+    "lng": 122.9595253,
+    "path": "Delicioso (10.7012976,122.9595253)/2024-04-11",
+    "name": "Delicioso",
+    "description": "",
+    "date": "2024-04-11"
+  },
+  {
+    "lat": 10.8336474,
+    "lng": 122.9481364,
+    "path": "Edgewater (10.8336474,122.9481364)/2024-04-01",
+    "name": "Edgewater",
+    "description": "",
+    "date": "2024-04-01"
+  },
+  {
+    "lat": 10.6864965,
+    "lng": 122.9545562,
+    "path": "Kansha (10.6864965,122.9545562)/2024-02-23",
+    "name": "Kansha",
+    "description": "",
+    "date": "2024-02-23"
+  },
+  {
+    "lat": 10.6725346,
+    "lng": 123.0588886,
+    "path": "Bantug Lake Ranch (10.6725346,123.0588886)/2024-02-21",
+    "name": "Bantug Lake Ranch",
+    "description": "",
+    "date": "2024-02-21"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2024-01-23",
+    "name": "Camella",
+    "description": "",
+    "date": "2024-01-23"
+  },
+  {
+    "lat": 10.7301697,
+    "lng": 122.9599343,
+    "path": "Gladylan (10.7301697,122.9599343)/2024-01-12",
+    "name": "Gladylan",
+    "description": "",
+    "date": "2024-01-12"
+  },
+  {
+    "lat": 10.6746303,
+    "lng": 122.9430732,
+    "path": "Gina's Seafood Restaurant (10.6746303,122.9430732)/2024-01-11",
+    "name": "Gina's Seafood Restaurant",
+    "description": "",
+    "date": "2024-01-11"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2024-01-04",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2024-01-04"
+  },
+  {
+    "lat": 10.7012976,
+    "lng": 122.9595253,
+    "path": "Delicioso (10.7012976,122.9595253)/2024-01-03",
+    "name": "Delicioso",
+    "description": "",
+    "date": "2024-01-03"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-12-30",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-12-30"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-12-21",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-12-21"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-12-19",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-12-19"
+  },
+  {
+    "lat": 10.8818194,
+    "lng": 122.9808008,
+    "path": "Playa del Puerto (10.8818194,122.9808008)/2023-12-17",
+    "name": "Playa del Puerto",
+    "description": "",
+    "date": "2023-12-17"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-12-16",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-12-16"
+  },
+  {
+    "lat": 10.7301697,
+    "lng": 122.9599343,
+    "path": "Gladylan (10.7301697,122.9599343)/2023-12-11",
+    "name": "Gladylan",
+    "description": "",
+    "date": "2023-12-11"
+  },
+  {
+    "lat": 10.6584818,
+    "lng": 122.9665588,
+    "path": "NGC (10.6584818,122.9665588)/2023-12-09",
+    "name": "NGC",
+    "description": "",
+    "date": "2023-12-09"
+  },
+  {
+    "lat": 10.6584818,
+    "lng": 122.9665588,
+    "path": "NGC (10.6584818,122.9665588)/2023-12-05",
+    "name": "NGC",
+    "description": "",
+    "date": "2023-12-05"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-12-02",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-12-02"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-11-29",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-11-29"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-11-28",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-11-28"
+  },
+  {
+    "lat": 10.6611388,
+    "lng": 122.940682,
+    "path": "Lion's Park (10.6611388,122.940682)/2023-11-24",
+    "name": "Lion's Park",
+    "description": "",
+    "date": "2023-11-24"
+  },
+  {
+    "lat": 10.6918367,
+    "lng": 122.9794073,
+    "path": "Rockwell (10.6918367,122.9794073)/2023-11-22",
+    "name": "Rockwell",
+    "description": "",
+    "date": "2023-11-22"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-11-19",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-11-19"
+  },
+  {
+    "lat": 10.6746303,
+    "lng": 122.9430732,
+    "path": "Gina's Seafood Restaurant (10.6746303,122.9430732)/2023-11-08",
+    "name": "Gina's Seafood Restaurant",
+    "description": "",
+    "date": "2023-11-08"
+  },
+  {
+    "lat": 10.6606972,
+    "lng": 122.9862387,
+    "path": "Rolling Hills (10.6606972,122.9862387)/2023-11-02",
+    "name": "Rolling Hills",
+    "description": "",
+    "date": "2023-11-02"
+  },
+  {
+    "lat": 10.6767878,
+    "lng": 122.9476759,
+    "path": "Ayala Capitol (10.6767878,122.9476759)/2023-10-29",
+    "name": "Ayala Capitol",
+    "description": "",
+    "date": "2023-10-29"
+  },
+  {
+    "lat": 10.6584818,
+    "lng": 122.9665588,
+    "path": "NGC (10.6584818,122.9665588)/2023-10-14",
+    "name": "NGC",
+    "description": "",
+    "date": "2023-10-14"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-09-26",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-09-26"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-09-24",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-09-24"
+  },
+  {
+    "lat": 10.5123393,
+    "lng": 123.101989,
+    "path": "Mambukal (10.5123393,123.101989)/2023-09-21",
+    "name": "Mambukal",
+    "description": "",
+    "date": "2023-09-21"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-09-02",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-09-02"
+  },
+  {
+    "lat": 10.6760181,
+    "lng": 122.9495896,
+    "path": "Lagoon (10.6760181,122.9495896)/2023-08-30",
+    "name": "Lagoon",
+    "description": "",
+    "date": "2023-08-30"
+  },
+  {
+    "lat": 10.6723969,
+    "lng": 122.9380618,
+    "path": "Baywalk (10.6723969,122.9380618)/2023-08-26",
+    "name": "Baywalk",
+    "description": "",
+    "date": "2023-08-26"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-08-20",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-08-20"
+  },
+  {
+    "lat": 10.7301697,
+    "lng": 122.9599343,
+    "path": "Gladylan (10.7301697,122.9599343)/2023-08-14",
+    "name": "Gladylan",
+    "description": "",
+    "date": "2023-08-14"
+  },
+  {
+    "lat": 10.7012976,
+    "lng": 122.9595253,
+    "path": "Delicioso (10.7012976,122.9595253)/2023-08-05",
+    "name": "Delicioso",
+    "description": "",
+    "date": "2023-08-05"
+  },
+  {
+    "lat": 10.7301697,
+    "lng": 122.9599343,
+    "path": "Gladylan (10.7301697,122.9599343)/2023-08-04",
+    "name": "Gladylan",
+    "description": "",
+    "date": "2023-08-04"
+  },
+  {
+    "lat": 10.7301697,
+    "lng": 122.9599343,
+    "path": "Gladylan (10.7301697,122.9599343)/2023-08-01",
+    "name": "Gladylan",
+    "description": "",
+    "date": "2023-08-01"
+  },
+  {
+    "lat": 10.7012976,
+    "lng": 122.9595253,
+    "path": "Delicioso (10.7012976,122.9595253)/2023-07-19",
+    "name": "Delicioso",
+    "description": "",
+    "date": "2023-07-19"
+  },
+  {
+    "lat": 9.9004413,
+    "lng": 122.8883402,
+    "path": "Mag-Aso Falls Kabankalan (9.9004413,122.8883402)/2023-07-16",
+    "name": "Mag-Aso Falls Kabankalan",
+    "description": "",
+    "date": "2023-07-16"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-07-15",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-07-15"
+  },
+  {
+    "lat": 10.5874252,
+    "lng": 123.0646717,
+    "path": "E Gravino Recreational Hub (best mango shake jewk) (10.5874252,123.0646717)/2023-07-09",
+    "name": "E Gravino Recreational Hub (best mango shake jewk)",
+    "description": "",
+    "date": "2023-07-09"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-07-05",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-07-05"
+  },
+  {
+    "lat": 10.6707923,
+    "lng": 122.9400966,
+    "path": "SM City Bacolod (10.6707923,122.9400966)/2023-07-01",
+    "name": "SM City Bacolod",
+    "description": "",
+    "date": "2023-07-01"
+  },
+  {
+    "lat": 10.6616737,
+    "lng": 122.9663644,
+    "path": "Nonna's Kitchen (with April) (10.6616737,122.9663644)/2023-06-29",
+    "name": "Nonna's Kitchen (with April)",
+    "description": "",
+    "date": "2023-06-29"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-06-27",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-06-27"
+  },
+  {
+    "lat": 10.9421693,
+    "lng": 123.1265095,
+    "path": "Northland Resort Hotel (10.9421693,123.1265095)/2023-06-26",
+    "name": "Northland Resort Hotel",
+    "description": "",
+    "date": "2023-06-26"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-06-23",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-06-23"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-06-22",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-06-22"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-06-21",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-06-21"
+  },
+  {
+    "lat": 10.6854769,
+    "lng": 122.9513096,
+    "path": "Maria Kucina (10.6854769,122.9513096)/2023-06-17",
+    "name": "Maria Kucina",
+    "description": "",
+    "date": "2023-06-17"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-06-07",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-06-07"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-06-05",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-06-05"
+  },
+  {
+    "lat": 10.6584818,
+    "lng": 122.9665588,
+    "path": "NGC (10.6584818,122.9665588)/2023-06-04",
+    "name": "NGC",
+    "description": "",
+    "date": "2023-06-04"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-06-04",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-06-04"
+  },
+  {
+    "lat": 10.6746303,
+    "lng": 122.9430732,
+    "path": "Gina's Seafood Restaurant (10.6746303,122.9430732)/2023-05-29",
+    "name": "Gina's Seafood Restaurant",
+    "description": "",
+    "date": "2023-05-29"
+  },
+  {
+    "lat": 10.602452,
+    "lng": 122.9120962,
+    "path": "Garage Talabahan (10.602452,122.9120962)/2023-05-27",
+    "name": "Garage Talabahan",
+    "description": "",
+    "date": "2023-05-27"
+  },
+  {
+    "lat": 10.6619264,
+    "lng": 123.0240884,
+    "path": "Conchita (10.6619264,123.0240884)/2023-05-27",
+    "name": "Conchita",
+    "description": "",
+    "date": "2023-05-27"
+  },
+  {
+    "lat": 10.6584818,
+    "lng": 122.9665588,
+    "path": "NGC (10.6584818,122.9665588)/2023-05-23",
+    "name": "NGC",
+    "description": "",
+    "date": "2023-05-23"
+  },
+  {
+    "lat": 10.5994501,
+    "lng": 122.5865709,
+    "path": "Guimaras Manggahan (10.5994501,122.5865709)/2023-05-21",
+    "name": "Guimaras Manggahan",
+    "description": "",
+    "date": "2023-05-21"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-05-17",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-05-17"
+  },
+  {
+    "lat": 10.6675796,
+    "lng": 123.0345174,
+    "path": "Hideout Cafe (10.6675796,123.0345174)/2023-05-16",
+    "name": "Hideout Cafe",
+    "description": "",
+    "date": "2023-05-16"
+  },
+  {
+    "lat": 10.679412,
+    "lng": 123.036135,
+    "path": "Uma (10.679412,123.036135)/2023-05-14",
+    "name": "Uma",
+    "description": "",
+    "date": "2023-05-14"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-05-12",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-05-12"
+  },
+  {
+    "lat": 10.6760181,
+    "lng": 122.9495896,
+    "path": "Lagoon (10.6760181,122.9495896)/2023-05-11",
+    "name": "Lagoon",
+    "description": "",
+    "date": "2023-05-11"
+  },
+  {
+    "lat": 10.7301697,
+    "lng": 122.9599343,
+    "path": "Gladylan (10.7301697,122.9599343)/2023-05-10",
+    "name": "Gladylan",
+    "description": "",
+    "date": "2023-05-10"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-05-08",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-05-08"
+  },
+  {
+    "lat": 10.7011207,
+    "lng": 122.9466785,
+    "path": "Palawud (10.7011207,122.9466785)/2023-05-07",
+    "name": "Palawud",
+    "description": "",
+    "date": "2023-05-07"
+  },
+  {
+    "lat": 10.7012976,
+    "lng": 122.9595253,
+    "path": "Delicioso (10.7012976,122.9595253)/2023-05-05",
+    "name": "Delicioso",
+    "description": "",
+    "date": "2023-05-05"
+  },
+  {
+    "lat": 10.6767878,
+    "lng": 122.9476759,
+    "path": "Ayala Capitol (10.6767878,122.9476759)/2023-04-27",
+    "name": "Ayala Capitol",
+    "description": "",
+    "date": "2023-04-27"
+  },
+  {
+    "lat": 10.6626791,
+    "lng": 123.0247713,
+    "path": "Cafe Jito (10.6626791,123.0247713)/2023-04-22",
+    "name": "Cafe Jito",
+    "description": "",
+    "date": "2023-04-22"
+  },
+  {
+    "lat": 10.5998062,
+    "lng": 123.0456296,
+    "path": "Hilltop (10.5998062,123.0456296)/2023-04-21",
+    "name": "Hilltop",
+    "description": "",
+    "date": "2023-04-21"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-04-20",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-04-20"
+  },
+  {
+    "lat": 10.6760181,
+    "lng": 122.9495896,
+    "path": "Lagoon (10.6760181,122.9495896)/2023-04-16",
+    "name": "Lagoon",
+    "description": "",
+    "date": "2023-04-16"
+  },
+  {
+    "lat": 10.6723969,
+    "lng": 122.9380618,
+    "path": "Baywalk (10.6723969,122.9380618)/2023-04-16",
+    "name": "Baywalk",
+    "description": "",
+    "date": "2023-04-16"
+  },
+  {
+    "lat": 10.6644496,
+    "lng": 122.9681646,
+    "path": "KFC East (10.6644496,122.9681646)/2023-04-15",
+    "name": "KFC East",
+    "description": "",
+    "date": "2023-04-15"
+  },
+  {
+    "lat": 10.6584818,
+    "lng": 122.9665588,
+    "path": "NGC (10.6584818,122.9665588)/2023-04-12",
+    "name": "NGC",
+    "description": "",
+    "date": "2023-04-12"
+  },
+  {
+    "lat": 10.8818194,
+    "lng": 122.9808008,
+    "path": "Playa del Puerto (10.8818194,122.9808008)/2023-04-10",
+    "name": "Playa del Puerto",
+    "description": "",
+    "date": "2023-04-10"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-04-10",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-04-10"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-04-09",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-04-09"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-04-08",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-04-08"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-04-06",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-04-06"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-04-04",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-04-04"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-04-03",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-04-03"
+  },
+  {
+    "lat": 10.6746303,
+    "lng": 122.9430732,
+    "path": "Gina's Seafood Restaurant (10.6746303,122.9430732)/2023-04-02",
+    "name": "Gina's Seafood Restaurant",
+    "description": "",
+    "date": "2023-04-02"
+  },
+  {
+    "lat": 10.6723969,
+    "lng": 122.9380618,
+    "path": "Baywalk (10.6723969,122.9380618)/2023-04-02",
+    "name": "Baywalk",
+    "description": "",
+    "date": "2023-04-02"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-03-29",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-03-29"
+  },
+  {
+    "lat": 10.6895694,
+    "lng": 122.9751623,
+    "path": "Camella (10.6895694,122.9751623)/2023-03-27",
+    "name": "Camella",
+    "description": "",
+    "date": "2023-03-27"
+  },
+  {
+    "lat": 10.6930064,
+    "lng": 122.9749599,
+    "path": "Arffogato Dog Cafe (10.6930064,122.9749599)/2023-03-26",
+    "name": "Arffogato Dog Cafe",
+    "description": "",
+    "date": "2023-03-26"
+  },
+  {
+    "lat": 10.6746303,
+    "lng": 122.9430732,
+    "path": "Gina's Seafood Restaurant (10.6746303,122.9430732)/2023-03-21",
+    "name": "Gina's Seafood Restaurant",
+    "description": "",
+    "date": "2023-03-21"
+  },
+  {
+    "lat": 10.6746303,
+    "lng": 122.9430732,
+    "path": "Gina's Seafood Restaurant (10.6746303,122.9430732)/2023-03-16",
+    "name": "Gina's Seafood Restaurant",
+    "description": "",
+    "date": "2023-03-16"
   }
 ]
