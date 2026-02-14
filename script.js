@@ -308,19 +308,29 @@ let touchStartX = 0;
 let touchEndX = 0;
 let touchStartY = 0;
 let touchEndY = 0;
+let touchIdentifier = null;
 
 $(document).on("touchstart", "#lightbox", function(e) {
-  if ($("#lightbox").hasClass("flex")) {
-    touchStartX = e.changedTouches[0].screenX;
-    touchStartY = e.changedTouches[0].screenY;
+  if ($("#lightbox").hasClass("flex") && e.touches.length === 1) {
+    const touch = e.touches[0];
+    touchStartX = touch.screenX;
+    touchStartY = touch.screenY;
+    touchIdentifier = touch.identifier;
   }
 });
 
 $(document).on("touchend", "#lightbox", function(e) {
-  if ($("#lightbox").hasClass("flex")) {
-    touchEndX = e.changedTouches[0].screenX;
-    touchEndY = e.changedTouches[0].screenY;
-    handleSwipeGesture();
+  if ($("#lightbox").hasClass("flex") && touchIdentifier !== null) {
+    // Find the touch that matches our stored identifier
+    for (let i = 0; i < e.changedTouches.length; i++) {
+      if (e.changedTouches[i].identifier === touchIdentifier) {
+        touchEndX = e.changedTouches[i].screenX;
+        touchEndY = e.changedTouches[i].screenY;
+        handleSwipeGesture();
+        touchIdentifier = null;
+        break;
+      }
+    }
   }
 });
 
