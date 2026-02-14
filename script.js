@@ -139,15 +139,15 @@ function openGallery(locData) {
 
 function loadImagesForContainer(dateContainer) {
   const encodedDir = dateContainer.attr('data-images-dir');
-  const isLoaded = dateContainer.attr('data-loaded') === 'true';
+  const loadedStatus = dateContainer.attr('data-loaded');
   
-  // Skip if already loaded
-  if (isLoaded) {
+  // Skip if already loaded or currently loading
+  if (loadedStatus === 'true' || loadedStatus === 'loading') {
     return;
   }
   
-  // Mark as loaded to prevent duplicate loading
-  dateContainer.attr('data-loaded', 'true');
+  // Mark as loading to prevent duplicate loading attempts
+  dateContainer.attr('data-loaded', 'loading');
   
   fetch(`${encodedDir}/index.json`)
     .then(response => response.json())
@@ -175,10 +175,15 @@ function loadImagesForContainer(dateContainer) {
           dateContainer.append(img);
         });
       }
+      
+      // Mark as successfully loaded after images are added
+      dateContainer.attr('data-loaded', 'true');
     })
     .catch(error => {
       console.error('Error loading images for directory:', encodedDir, error);
       dateContainer.html('<p class="text-gray-500">Error loading images.</p>');
+      // Reset loading flag on error to allow retry
+      dateContainer.attr('data-loaded', 'false');
     });
 }
 
