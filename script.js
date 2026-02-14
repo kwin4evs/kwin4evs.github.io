@@ -45,7 +45,7 @@ async function initMap() {
       icon: {
         url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
   <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#e11d48'>
-    <path d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/>
+    <path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/>
   </svg>
 `),
         scaledSize: new google.maps.Size(40, 40),
@@ -302,3 +302,42 @@ $(document).on("mousemove", "#lightbox", function() {
     }
   }
 });
+
+// Touch/Swipe support for image navigation
+let touchStartX = 0;
+let touchEndX = 0;
+let touchStartY = 0;
+let touchEndY = 0;
+
+$(document).on("touchstart", "#lightbox", function(e) {
+  if ($("#lightbox").hasClass("flex")) {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }
+});
+
+$(document).on("touchend", "#lightbox", function(e) {
+  if ($("#lightbox").hasClass("flex")) {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipeGesture();
+  }
+});
+
+function handleSwipeGesture() {
+  const swipeThreshold = 50; // Minimum distance for a swipe
+  const swipeDistanceX = touchEndX - touchStartX;
+  const swipeDistanceY = Math.abs(touchEndY - touchStartY);
+  
+  // Only trigger swipe if horizontal movement is greater than vertical
+  // This prevents accidental swipes when scrolling
+  if (Math.abs(swipeDistanceX) > swipeThreshold && Math.abs(swipeDistanceX) > swipeDistanceY) {
+    if (swipeDistanceX > 0) {
+      // Swipe right - show previous image
+      showPreviousImage();
+    } else {
+      // Swipe left - show next image
+      showNextImage();
+    }
+  }
+}
