@@ -124,7 +124,6 @@
   width: auto;
   height: auto;
   object-fit: contain;
-  pointer-events: none;
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -moz-user-select: none;

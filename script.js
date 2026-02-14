@@ -5,6 +5,10 @@ let currentFolderImages = []; // Array to store images for current folder being 
 let currentImageIndex = 0; // Current image index in lightbox
 let imageToFolderMap = {}; // Maps image src to folder path for scoped navigation
 
+// Swipe gesture constants
+const SWIPE_DISTANCE_THRESHOLD = 50; // Minimum distance in pixels for a swipe to register
+const SWIPE_INTENT_THRESHOLD = 10; // Minimum movement to detect swipe intent vs tap
+
 async function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 5,
@@ -329,7 +333,7 @@ $(document).on("touchmove", "#lightbox", function(e) {
       const deltaY = Math.abs(touch.clientY - touchStartY);
       
       // If horizontal movement is greater, we're swiping (not scrolling)
-      if (deltaX > deltaY && deltaX > 10) {
+      if (deltaX > deltaY && deltaX > SWIPE_INTENT_THRESHOLD) {
         isSwiping = true;
         e.preventDefault(); // Prevent scrolling when swiping horizontally
       }
@@ -367,13 +371,12 @@ $(document).on("touchcancel", "#lightbox", function(e) {
 });
 
 function handleSwipeGesture() {
-  const swipeThreshold = 50; // Minimum distance for a swipe
   const swipeDistanceX = touchEndX - touchStartX;
   const swipeDistanceY = Math.abs(touchEndY - touchStartY);
   
   // Only trigger swipe if horizontal movement is greater than vertical
   // This prevents accidental swipes when scrolling
-  if (Math.abs(swipeDistanceX) > swipeThreshold && Math.abs(swipeDistanceX) > swipeDistanceY) {
+  if (Math.abs(swipeDistanceX) > SWIPE_DISTANCE_THRESHOLD && Math.abs(swipeDistanceX) > swipeDistanceY) {
     if (swipeDistanceX > 0) {
       // Swipe right - show previous image
       showPreviousImage();
