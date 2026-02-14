@@ -309,13 +309,31 @@ let touchEndX = 0;
 let touchStartY = 0;
 let touchEndY = 0;
 let touchIdentifier = null;
+let isSwiping = false;
 
 $(document).on("touchstart", "#lightbox", function(e) {
   if ($("#lightbox").hasClass("flex") && e.touches.length === 1) {
     const touch = e.touches[0];
-    touchStartX = touch.screenX;
-    touchStartY = touch.screenY;
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
     touchIdentifier = touch.identifier;
+    isSwiping = false;
+  }
+});
+
+$(document).on("touchmove", "#lightbox", function(e) {
+  if ($("#lightbox").hasClass("flex") && touchIdentifier !== null && e.touches.length === 1) {
+    const touch = e.touches[0];
+    if (touch.identifier === touchIdentifier) {
+      const deltaX = Math.abs(touch.clientX - touchStartX);
+      const deltaY = Math.abs(touch.clientY - touchStartY);
+      
+      // If horizontal movement is greater, we're swiping (not scrolling)
+      if (deltaX > deltaY && deltaX > 10) {
+        isSwiping = true;
+        e.preventDefault(); // Prevent scrolling when swiping horizontally
+      }
+    }
   }
 });
 
@@ -324,10 +342,24 @@ $(document).on("touchend", "#lightbox", function(e) {
     // Find the touch that matches our stored identifier
     for (let i = 0; i < e.changedTouches.length; i++) {
       if (e.changedTouches[i].identifier === touchIdentifier) {
-        touchEndX = e.changedTouches[i].screenX;
-        touchEndY = e.changedTouches[i].screenY;
+        touchEndX = e.changedTouches[i].clientX;
+        touchEndY = e.changedTouches[i].clientY;
         handleSwipeGesture();
         touchIdentifier = null;
+        isSwiping = false;
+        break;
+      }
+    }
+  }
+});
+
+$(document).on("touchcancel", "#lightbox", function(e) {
+  if ($("#lightbox").hasClass("flex") && touchIdentifier !== null) {
+    // Reset touch tracking if gesture is cancelled
+    for (let i = 0; i < e.changedTouches.length; i++) {
+      if (e.changedTouches[i].identifier === touchIdentifier) {
+        touchIdentifier = null;
+        isSwiping = false;
         break;
       }
     }
