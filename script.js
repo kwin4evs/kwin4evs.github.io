@@ -1,9 +1,11 @@
 let map;
 let locationsByCoords = {}; // Group entries by lat,lng
+let allLocations = []; // Array of all unique locations for search
 let allImages = []; // Array to store all images from all folders
 let currentFolderImages = []; // Array to store images for current folder being viewed
 let currentImageIndex = 0; // Current image index in lightbox
 let imageToFolderMap = {}; // Maps image src to folder path for scoped navigation
+let currentMarker = null; // Current marker highlighted from search
 
 // Swipe gesture constants
 const SWIPE_DISTANCE_THRESHOLD = 50; // Minimum distance in pixels for a swipe to register
@@ -63,6 +65,105 @@ async function initMap() {
   });
 
   new markerClusterer.MarkerClusterer({ map, markers });
+  
+  // Initialize search functionality
+  initializeSearch();
+}
+
+function initializeSearch() {
+  const searchInput = document.getElementById('placeSearch');
+  const placeList = document.getElementById('placeList');
+  
+  // Build unique locations list for autocomplete
+  allLocations = Object.values(locationsByCoords).map(loc => ({
+    name: loc.name,
+    lat: loc.lat,
+    lng: loc.lng
+  })).sort((a, b) => a.name.localeCompare(b.name));
+  
+  // Handle input
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    
+    if (query.length === 0) {
+      placeList.classList.remove('active');
+      placeList.innerHTML = '';
+      return;
+    }
+    
+    // Filter locations based on query
+    const filtered = allLocations.filter(loc => 
+      loc.name.toLowerCase().includes(query)
+    );
+    
+    // Show autocomplete list
+    if (filtered.length > 0) {
+      placeList.innerHTML = filtered.map((loc, idx) => 
+        `<li data-index="${idx}" data-lat="${loc.lat}" data-lng="${loc.lng}" class="autocomplete-item">${loc.name}</li>`
+      ).join('');
+      placeList.classList.add('active');
+    } else {
+      placeList.innerHTML = '<li class="text-gray-500 text-center">No places found</li>';
+      placeList.classList.add('active');
+    }
+  });
+  
+  // Handle item selection
+  placeList.addEventListener('click', (e) => {
+    const item = e.target.closest('li.autocomplete-item');
+    if (item) {
+      const lat = parseFloat(item.dataset.lat);
+      const lng = parseFloat(item.dataset.lng);
+      const locationKey = `${lat},${lng}`;
+      
+      if (locationsByCoords[locationKey]) {
+        // Clear search input
+        searchInput.value = '';
+        placeList.classList.remove('active');
+        placeList.innerHTML = '';
+        
+        // Pan to location and add marker
+        const locData = locationsByCoords[locationKey];
+        map.panTo({ lat, lng });
+        map.setZoom(15);
+        
+        // Remove previous custom marker if exists
+        if (currentMarker) {
+          currentMarker.setMap(null);
+        }
+        
+        // Add custom marker at this location
+        currentMarker = new google.maps.Marker({
+          position: { lat, lng },
+          map: map,
+          icon: {
+            url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#fbbf24'>
+    <path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/>
+  </svg>
+`),
+            scaledSize: new google.maps.Size(50, 50),
+            anchor: new google.maps.Point(25, 50)
+          },
+          animation: google.maps.Animation.DROP,
+          title: locData.name
+        });
+        
+        // Open gallery on marker click
+        currentMarker.addListener('click', () => openGallery(locData));
+        
+        // Also open the gallery immediately
+        openGallery(locData);
+      }
+    }
+  });
+  
+  // Close autocomplete on outside click
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.autocomplete-wrapper')) {
+      placeList.classList.remove('active');
+    }
+  });
 }
 
 function openGallery(locData) {
